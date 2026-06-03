@@ -1,14 +1,27 @@
 package com.limasys.service;
 
 import com.limasys.entity.Book;
+import com.limasys.entity.Magazine;
+import com.limasys.repository.LibraryRepository;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryService {
 
-    private final List<Book> books = new ArrayList<>();
+    private final LibraryRepository repository;
+
+    public LibraryService() {
+        repository = new LibraryRepository();
+    }
+
+    public List<Book> getAllBooks() {
+        return repository.getBooks();
+    }
+
+    public List<Magazine> getAllMagazines() {
+        return repository.getMagazines();
+    }
 
     public void addBook(int id,
                         String title,
@@ -25,7 +38,6 @@ public class LibraryService {
         book.setIsbn(isbn);
         book.setAddedAt(LocalDateTime.now());
 
-        books.add(book);
+        repository.getBooks().add(book);
     }
-
 }

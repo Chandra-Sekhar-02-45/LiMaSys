@@ -7,7 +7,7 @@ public class InputUtil {
         System.out.println("Welcome To LiMaSys");
         System.out.println("Enter 1 : Add Book");
         System.out.println("Enter 2 : Search Books By Author");
-        System.out.println("Enter 3 : Get All The Available Books");
+        System.out.println("Enter 3 : Get All The Available Books & Magazines");
         System.out.println("Enter 4 : Borrow Book From Library");
         System.out.println("Enter 5 : Returning The Borrowed Book To Library");
         System.out.println("Enter 6 : Search Books By Genre");

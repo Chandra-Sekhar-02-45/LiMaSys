@@ -42,9 +42,19 @@ public class Main {
                     case 2 :
                         System.out.println("The Book Written By The Author : ");
                         break ;
-                    case 3 :
-                        System.out.println("All Books In The Library : ");
-                        break ;
+                    case 3:
+
+                        System.out.println("\n===== BOOKS =====");
+
+                        libraryService.getAllBooks()
+                                .forEach(book -> System.out.println(book.display()));
+
+                        System.out.println("\n===== MAGAZINES =====");
+
+                        libraryService.getAllMagazines()
+                                .forEach(magazine -> System.out.println(magazine.display()));
+
+                        break;
                     case 4 :
                         System.out.println("Borrowing Book Confirmed");
                         break ;
