@@ -1,7 +1,7 @@
-package controller;
+package com.limasys.controller;
 
 import java.util.Scanner;
-import util.InputUtil;
+import com.limasys.util.InputUtil;
 
 public class Main {
     public static void main(String[] args) {
