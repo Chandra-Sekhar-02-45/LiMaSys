@@ -1,9 +1,13 @@
 package com.limasys.controller;
 
 import java.util.Scanner;
+
+import com.limasys.service.LibraryService;
 import com.limasys.util.InputUtil;
 
 public class Main {
+    private final LibraryService libraryService = new LibraryService();
+
     public static void main(String[] args) {
         new Main().run();
     }
@@ -14,9 +18,27 @@ public class Main {
             do {
                 int option = InputUtil.acceptMenuOption(sc);
                 switch(option) {
-                    case 1 :
+                    case 1:
+                        System.out.print("Enter Book Id : ");
+                        int id = sc.nextInt();
+                        sc.nextLine();
+
+                        System.out.print("Enter Title : ");
+                        String title = sc.nextLine();
+
+                        System.out.print("Enter Genre : ");
+                        String genre = sc.nextLine();
+
+                        System.out.print("Enter Author : ");
+                        String author = sc.nextLine();
+
+                        System.out.print("Enter ISBN : ");
+                        int isbn = sc.nextInt();
+
+                        libraryService.addBook(id, title, genre, author, isbn);
+
                         System.out.println("Book Added Successfully");
-                        break ;
+                        break;
                     case 2 :
                         System.out.println("The Book Written By The Author : ");
                         break ;
