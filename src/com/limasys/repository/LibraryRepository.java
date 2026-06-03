@@ -42,12 +42,14 @@ public class LibraryRepository {
         m1.setTitle("Tech Monthly");
         m1.setGenre("Technology");
         m1.setIssueNumber(1);
+        m1.setPublisher("Tech Media");
 
         Magazine m2 = new Magazine();
         m2.setId(102);
         m2.setTitle("Science Today");
         m2.setGenre("Science");
         m2.setIssueNumber(15);
+        m2.setPublisher("Science Publications");
 
         magazines.add(m1);
         magazines.add(m2);

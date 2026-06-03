@@ -54,6 +54,7 @@ public class Main {
                         libraryService.getAllMagazines()
                                 .forEach(magazine -> System.out.println(magazine.display()));
 
+                        System.out.println("\n");
                         break;
                     case 4 :
                         System.out.println("Borrowing Book Confirmed");

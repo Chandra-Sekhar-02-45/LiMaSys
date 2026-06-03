@@ -30,6 +30,9 @@ public class InputUtil {
         else if(selectedOption == 5) {
             return selectedOption ;
         }
+        else if(selectedOption == 6) {
+            return selectedOption ;
+        }
         else {
             return acceptMenuOption(sc) ;
         }
