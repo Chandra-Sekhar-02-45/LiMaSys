@@ -96,6 +96,12 @@ public class LibraryService {
             return;
         }
 
+        if(book.isAvailable()) {
+            System.out.println(
+                    "Book was not borrowed.");
+            return;
+        }
+
         book.returnItem();
 
         System.out.println(
