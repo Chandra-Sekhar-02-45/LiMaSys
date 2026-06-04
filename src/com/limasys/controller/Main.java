@@ -93,8 +93,13 @@ public class Main {
 
                         break;
                     }
-                    case 5 : {
-                        System.out.println("Returning Book Confirmed");
+                    case 5: {
+
+                        System.out.print("Enter Book Id : ");
+                        int bookId = sc.nextInt();
+
+                        libraryService.returnBook(bookId);
+
                         break;
                     }
                     default : {

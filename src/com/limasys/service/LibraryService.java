@@ -82,4 +82,24 @@ public class LibraryService {
                 book.getTitle() +
                         " Borrowed Successfully");
     }
+
+    public void returnBook(int bookId) {
+
+        Book book = repository.getBooks()
+                .stream()
+                .filter(b -> b.getId() == bookId)
+                .findFirst()
+                .orElse(null);
+
+        if(book == null) {
+            System.out.println("Book Not Found");
+            return;
+        }
+
+        book.returnItem();
+
+        System.out.println(
+                book.getTitle() +
+                        " Returned Successfully");
+    }
 }
