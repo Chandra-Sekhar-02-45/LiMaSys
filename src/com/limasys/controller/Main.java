@@ -2,6 +2,8 @@ package com.limasys.controller;
 
 import java.util.Scanner;
 
+import com.limasys.entity.Book;
+import com.limasys.entity.SearchResult;
 import com.limasys.service.LibraryService;
 import com.limasys.util.InputUtil;
 
@@ -18,7 +20,7 @@ public class Main {
             do {
                 int option = InputUtil.acceptMenuOption(sc);
                 switch(option) {
-                    case 1:
+                    case 1: {
                         System.out.print("Enter Book Id : ");
                         int id = sc.nextInt();
                         sc.nextLine();
@@ -39,11 +41,30 @@ public class Main {
 
                         System.out.println("Book Added Successfully");
                         break;
-                    case 2 :
-                        System.out.println("The Book Written By The Author : ");
-                        break ;
-                    case 3:
+                    }
+                    case 2 : {
+                        sc.nextLine();
 
+                        System.out.print("Enter Author Name : ");
+                        String author = sc.nextLine();
+
+                        SearchResult<Book> result =
+                                libraryService.searchByAuthor(author);
+
+                        System.out.println("\nSearch Results:");
+
+                        if (result.getResults().isEmpty()) {
+                            System.out.println("No books found.");
+                        } else {
+
+                            result.getResults()
+                                    .forEach(book ->
+                                            System.out.println(book.display()));
+                        }
+
+                        break;
+                    }
+                    case 3: {
                         System.out.println("\n===== BOOKS =====");
 
                         libraryService.getAllBooks()
@@ -56,14 +77,18 @@ public class Main {
 
                         System.out.println("\n");
                         break;
-                    case 4 :
+                    }
+                    case 4 : {
                         System.out.println("Borrowing Book Confirmed");
                         break ;
-                    case 5 :
+                    }
+                    case 5 : {
                         System.out.println("Returning Book Confirmed");
-                        break ;
-                    default :
+                        break;
+                    }
+                    default : {
                         System.out.println("Program Exit");
+                    }
                 }
             } while(InputUtil.wantToContinue(sc));
         } catch(Exception exception) {

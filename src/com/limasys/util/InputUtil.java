@@ -12,8 +12,6 @@ public class InputUtil {
         System.out.println("Enter 5 : Returning The Borrowed Book To Library");
         System.out.println("Enter 6 : Search Books By Genre");
 
-
-
         int selectedOption = sc.nextInt();
         if(selectedOption == 1) {
             return selectedOption ;

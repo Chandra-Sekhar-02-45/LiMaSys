@@ -2,6 +2,7 @@ package com.limasys.service;
 
 import com.limasys.entity.Book;
 import com.limasys.entity.Magazine;
+import com.limasys.entity.SearchResult;
 import com.limasys.repository.LibraryRepository;
 
 import java.time.LocalDateTime;
@@ -39,5 +40,19 @@ public class LibraryService {
         book.setAddedAt(LocalDateTime.now());
 
         repository.getBooks().add(book);
+    }
+
+    public SearchResult<Book> searchByAuthor(String author) {
+
+        List<Book> filteredBooks =
+                repository.getBooks()
+                        .stream()
+                        .filter(book ->
+                                book.getAuthor()
+                                        .toLowerCase()
+                                        .contains(author.toLowerCase()))
+                        .toList();
+
+        return new SearchResult<>(filteredBooks, author);
     }
 }
