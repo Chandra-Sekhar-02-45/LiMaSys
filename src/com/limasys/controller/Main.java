@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.limasys.entity.Book;
 import com.limasys.entity.SearchResult;
+import com.limasys.exceptions.BookNotAvailableException;
 import com.limasys.service.LibraryService;
 import com.limasys.util.InputUtil;
 
@@ -78,9 +79,19 @@ public class Main {
                         System.out.println("\n");
                         break;
                     }
-                    case 4 : {
-                        System.out.println("Borrowing Book Confirmed");
-                        break ;
+                    case 4: {
+
+                        System.out.print("Enter Book Id : ");
+                        int bookId = sc.nextInt();
+
+                        try {
+                            libraryService.borrowBook(bookId);
+                        }
+                        catch(BookNotAvailableException exception) {
+                            System.out.println(exception.getMessage());
+                        }
+
+                        break;
                     }
                     case 5 : {
                         System.out.println("Returning Book Confirmed");

@@ -1,9 +1,11 @@
 package com.limasys.entity;
 
-public class Book extends LibraryItem{
+import com.limasys.interfaces.Borrowable;
+
+public class Book extends LibraryItem implements Borrowable {
     private String author ;
     private int isbn ;
-    private boolean availability ;
+    private boolean availability = true ;
 
     public String getAuthor() {
         return author;
@@ -27,6 +29,21 @@ public class Book extends LibraryItem{
 
     public void setAvailability(boolean availability) {
         this.availability = availability;
+    }
+
+    @Override
+    public void borrow() {
+        availability = false;
+    }
+
+    @Override
+    public void returnItem() {
+        availability = true;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return availability;
     }
 
     @Override
